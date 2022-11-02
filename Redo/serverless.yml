@@ -1,0 +1,76 @@
+service: serverless-reteam-rest-api-redo
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'dev'}
+  region: ap-southeast-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: arn:aws:dynamodb:ap-southeast-1:*:*
+
+resources:
+  Resources:
+    RedosTable:
+      Type: 'AWS::DynamoDB::Table'
+      DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: id
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: 'Redo'
+
+functions:
+  create:
+    handler: src/redo/createRedo.createRedo
+    events:
+      - http:
+          path: redos
+          method: post
+          cors: true
+  list:
+    handler: src/redo/listRedo.listRedo
+    events:
+      - http:
+          path: redos
+          method: get
+          cors: true
+  get:
+    handler: src/redo/getRedo.getRedo
+    events:
+      - http:
+          path: redos/{id}
+          method: get
+          cors: true
+  update:
+    handler: src/redo/updateRedo.updateRedo
+    events:
+      - http:
+          path: redos/{id}
+          method: put
+          cors: true
+  delete:
+    handler: src/redo/deleteRedo.deleteRedo
+    events:
+      - http:
+          path: redos/{id}
+          method: delete
+          cors: true
+
