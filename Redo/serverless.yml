@@ -1,4 +1,4 @@
-service: serverless-reteam-rest-api-redo
+service: serverless-reteam-rest-redos
 frameworkVersion: '3'
 
 provider:
@@ -42,35 +42,34 @@ functions:
     handler: src/redo/createRedo.createRedo
     events:
       - http:
-          path: redos
+          path: redo
           method: post
           cors: true
   list:
     handler: src/redo/listRedo.listRedo
     events:
       - http:
-          path: redos
+          path: redo
           method: get
           cors: true
   get:
     handler: src/redo/getRedo.getRedo
     events:
       - http:
-          path: redos/{id}
+          path: redo/{id}
           method: get
           cors: true
   update:
     handler: src/redo/updateRedo.updateRedo
     events:
       - http:
-          path: redos/{id}
+          path: redo/{id}
           method: put
           cors: true
   delete:
     handler: src/redo/deleteRedo.deleteRedo
     events:
       - http:
-          path: redos/{id}
+          path: redo/{id}
           method: delete
           cors: true
-
