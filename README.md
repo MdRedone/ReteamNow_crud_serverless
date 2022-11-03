@@ -10,8 +10,6 @@ Here is the list of AWS resources that the project template creates:
 
 ✔️ AWS IAM
 
-✔️ AWS Cloudformation
-
 ✔️ Amazon S3 (that is where your CloudFormation template will be stored)
 
 1️⃣ The request which includes all necessary information is sent to Amazon API Gateway restful service.
