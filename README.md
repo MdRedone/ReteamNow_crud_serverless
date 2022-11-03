@@ -12,7 +12,9 @@ Here is the list of AWS resources that the project template creates:
 
 ✔️ Amazon S3 (that is where your CloudFormation template will be stored)
 
-✔️ In cloud, provisioning involves the process of preparing and equipping a network to allow it to provide new services to its users which is managed by cloudformation.
+# How to use the services: 
+
+In cloud, provisioning involves the process of preparing and equipping a network to allow it to provide new services to its users which is managed by cloudformation.
 
 1️⃣ The request which includes all necessary information is sent to Amazon API Gateway restful service.
 
