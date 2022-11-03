@@ -51,7 +51,8 @@ aws cloudformation delete-stack --stack-name aws-serverless-microservice-app-sta
 Don't forget to chill bro... 
 
 
-https://raw.githubusercontent.com/Tiamatt/AwsServerlessMicroserviceWithLambda/main/readme-images/meme-joker-dance.png
 
+
+![meme-joker-dance](https://user-images.githubusercontent.com/106739132/199656642-9a5a9928-54d7-4e02-ad0d-685676bba821.png)
 
 
