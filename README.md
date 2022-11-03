@@ -23,3 +23,21 @@ Here is the list of AWS resources that the project template creates:
 
 ![High level overview of microservice architecture](https://user-images.githubusercontent.com/106739132/199459978-6e7bd1e4-5696-4dc0-a3d9-8e0d1eb19777.jpg)
 
+
+Project setup: 
+
+Step 1: git clone https://github.com/MdRedone/ReteamNow_crud_serverless.git
+Step 2: aws configure
+        -> provide access of iam user
+        -> provide secret key of iam user
+Step 3: deploy full crud using : sls deploy
+Step 4: deploy single function using: sls deploy -f function_name
+
+
+Clean Up:
+To delete the sample application that you created, use the AWS CLI:
+
+aws cloudformation delete-stack --stack-name aws-serverless-microservice-app-stack
+
+
+
