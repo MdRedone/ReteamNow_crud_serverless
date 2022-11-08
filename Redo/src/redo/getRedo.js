@@ -7,7 +7,7 @@ module.exports.getRedo = (event, context, callback) => {
   const params = {
     TableName: "Redo",
     Key: {
-      id: event.pathParameters.id,
+      id: event.params.id,
     },
   };
 

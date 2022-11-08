@@ -8,9 +8,11 @@ const dynamoDb = new AWS.DynamoDB.DocumentClient();
 module.exports.listRedo = (event, context, callback) => {
   const params = {
     TableName: "Redo",
+    IndexName: "Properties_redo",
+    ScanIndexForward: true,
   };
 
-  dynamoDb.scan(params, (error, data) => {
+  dynamoDb.get(params, (error, data) => {
     if (error) {
       console.error(error);
       callback(new Error(error));
