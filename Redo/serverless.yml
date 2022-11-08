@@ -17,8 +17,6 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-            - Fn::GetAtt: [ RedosTable, Arn ]
-            - Fn::Join: ['/', ["Fn::GetAtt": [ RedosTable, Arn ], 'index', 'Properties_redo']]
             - arn:aws:dynamodb:ap-southeast-1:*:*
 
 resources:
@@ -30,6 +28,9 @@ resources:
         AttributeDefinitions:
           -
             AttributeName: id
+            AttributeType: S
+          -
+            AttributeName: task
             AttributeType: S
           -
             AttributeName: createdAt
@@ -45,10 +46,8 @@ resources:
         GlobalSecondaryIndexes:
         - IndexName: Properties_redo
           KeySchema: 
-            - AttributeName: id
+            - AttributeName: task
               KeyType: HASH
-            - AttributeName: createdAt
-              KeyType: RANGE
           Projection:
             ProjectionType: ALL
         TableName: 'Redo'
