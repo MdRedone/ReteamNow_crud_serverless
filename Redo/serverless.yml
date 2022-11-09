@@ -48,6 +48,8 @@ resources:
           KeySchema: 
             - AttributeName: task
               KeyType: HASH
+            - AttributeName: createdAt
+              KeyType: RANGE
           Projection:
             ProjectionType: ALL
         TableName: 'Redo'

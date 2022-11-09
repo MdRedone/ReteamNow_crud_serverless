@@ -12,6 +12,7 @@ module.exports.getRedo = (event, context, callback) => {
     ExpressionAttributeValues: {
       ":task": id,
     },
+    // ProjectionExpression: "ALL",
     ScanIndexForward: true,
   };
 
